@@ -5,29 +5,29 @@
                     "dev":  "next dev",
                     "build":  "next build",
                     "start":  "next start",
-                    "postinstall":  "prisma generate"
+                    "postinstall":  "prisma generate --schema=prisma/schema.prisma"
                 },
     "dependencies":  {
-                         "@aws-sdk/client-s3":  "^3.884.0",
-                         "@aws-sdk/s3-request-presigner":  "^3.884.0",
+                         "@aws-sdk/client-s3":  "3.884.0",
+                         "@aws-sdk/s3-request-presigner":  "3.884.0",
                          "@prisma/client":  "5.18.0",
-                         "@stripe/stripe-js":  "^3.4.1",
-                         "autoprefixer":  "^10.4.20",
-                         "jspdf":  "^2.5.2",
-                         "lucide-react":  "^0.446.0",
-                         "next":  "^14.2.5",
-                         "nodemailer":  "^6.10.1",
-                         "postcss":  "^8.4.47",
-                         "react":  "^18.2.0",
-                         "react-dom":  "^18.2.0",
-                         "stripe":  "^16.12.0",
-                         "tailwindcss":  "^3.4.10",
-                         "zod":  "^3.25.76"
+                         "@stripe/stripe-js":  "3.4.1",
+                         "autoprefixer":  "10.4.20",
+                         "jspdf":  "2.5.2",
+                         "lucide-react":  "0.446.0",
+                         "next":  "14.2.5",
+                         "nodemailer":  "6.10.1",
+                         "postcss":  "8.4.47",
+                         "react":  "18.2.0",
+                         "react-dom":  "18.2.0",
+                         "stripe":  "16.12.0",
+                         "tailwindcss":  "3.4.10",
+                         "zod":  "3.25.76"
                      },
     "devDependencies":  {
                             "@types/react":  "19.1.12",
                             "prisma":  "5.18.0",
-                            "typescript":  "^5.9.2"
+                            "typescript":  "5.9.2"
                         },
     "prisma":  {
                    "schema":  "prisma/schema.prisma"
