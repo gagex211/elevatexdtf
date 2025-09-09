@@ -1,0 +1,20 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+
+enum OrderStatus { NEW APPROVED PRINTING SHIPPED ISSUE }
+
+model Order {
+  id          String      @id @default(cuid())
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  email       String
+  sheetWidth  Float
+  sheetHeight Float
+  dpi         Int
+  sqFt        Float
+  unitPrice   Decimal     @db.Decimal(10,2)
+  amount      Decimal     @db.Decimal(10,2)
+  s3Key       String
+  stripeId    String       @unique
+  status      OrderStatus  @default(NEW)
+}

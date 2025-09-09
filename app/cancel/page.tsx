@@ -1,0 +1,1 @@
+﻿export default function Cancel(){ return <div className="p-10 text-center"><h1 className="text-2xl font-bold">Checkout Canceled</h1><p className="text-gray-600">No charge made. You can continue editing your sheet.</p></div>; }
