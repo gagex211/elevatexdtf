@@ -9,7 +9,7 @@ export const prisma: any = PrismaClient
       order: {
         findMany: async () => [],
         findUnique: async () => null,
-        upsert: async () => ({ id: "stub", email: "", sheetWidth: 0, sheetHeight: 0, dpi: 0, sqFt: 0, unitPrice: 0, amount: 0, s3Key: "", stripeId: "stub", status: "NEW" }),
+        upsert: async () => ({ id: "stub" }),
         update: async () => ({})
       }
     };
