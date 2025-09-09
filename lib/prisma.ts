@@ -1,15 +1,8 @@
-﻿/** Safe prisma: works even if @prisma/client wasn’t generated yet */
-let PrismaClient: any;
-try { PrismaClient = require("@prisma/client").PrismaClient; } catch {}
-
-const g = global as any;
-export const prisma: any = PrismaClient
-  ? (g.prisma ||= new PrismaClient())
-  : {
-      order: {
-        findMany: async () => [],
-        findUnique: async () => null,
-        upsert: async () => ({ id: "stub" }),
-        update: async () => ({})
-      }
-    };
+﻿export const prisma = {
+  order: {
+    upsert: async (args:any)=>({ id:"no-db", ...(args?.create||{}), createdAt:new Date(), updatedAt:new Date() }),
+    findMany: async ()=>[],
+    findUnique: async ()=>null,
+    update: async (args:any)=>({ id: args?.where?.id || "no-db", ...(args?.data||{}), createdAt:new Date(), updatedAt:new Date() }),
+  },
+} as any;

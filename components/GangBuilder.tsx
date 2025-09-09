@@ -271,11 +271,18 @@ export default function GangBuilder(){
 
   // === Clean createCheckout with dev no-S3 bypass ===
   async function createCheckout(){
-    const devNoS3 = process.env.NEXT_PUBLIC_DEV_NO_S3 === "1";
-    const blob = await renderFlattenedPNGBlob(false, dpi);
-    let s3Key = "local-dev";
-    if (!devNoS3) {
-      s3Key = await uploadToS3(`gang-${Date.now()}.png`, "image/png", blob);
+  const blob = await renderFlattenedPNGBlob(false, dpi);
+  let key = "none";
+  try { key = await uploadToS3(`gang-${Date.now()}.png`, "image/png", blob); }
+  catch (e) { console.warn("S3 disabled or not configured; continuing without upload.", e); }
+  const res = await fetch("/api/checkout", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ sheetWIn, sheetHIn, dpi, sqFt, unitPrice: ratePerSqFt, s3Key: key })
+  });
+  const data = await res.json();
+  if (data.url) window.location.href = data.url;
+}.png`, "image/png", blob);
     }
     const res = await fetch("/api/checkout", {
       method:"POST",
@@ -365,3 +372,4 @@ export default function GangBuilder(){
     </div>
   );
 }
+

@@ -1,16 +1,14 @@
-{
+﻿{
     "name":  "demi-dtf-gang-studio",
     "private":  true,
     "scripts":  {
                     "dev":  "next dev",
                     "build":  "next build",
-                    "start":  "next start",
-                    "postinstall":  "prisma generate --schema=prisma/schema.prisma"
+                    "start":  "next start"
                 },
     "dependencies":  {
                          "@aws-sdk/client-s3":  "3.884.0",
                          "@aws-sdk/s3-request-presigner":  "3.884.0",
-                         "@prisma/client":  "5.18.0",
                          "@stripe/stripe-js":  "3.4.1",
                          "autoprefixer":  "10.4.20",
                          "jspdf":  "2.5.2",
@@ -26,7 +24,6 @@
                      },
     "devDependencies":  {
                             "@types/react":  "19.1.12",
-                            "prisma":  "5.18.0",
                             "typescript":  "5.9.2"
                         },
     "prisma":  {
