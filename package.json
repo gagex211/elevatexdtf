@@ -1,13 +1,11 @@
-﻿{
+{
     "name":  "demi-dtf-gang-studio",
     "private":  true,
-    "engines":  {
-                    "node":  "20.x"
-                },
     "scripts":  {
                     "dev":  "next dev",
                     "build":  "next build",
-                    "start":  "next start"
+                    "start":  "next start",
+                    "postinstall":  "prisma generate"
                 },
     "dependencies":  {
                          "@aws-sdk/client-s3":  "^3.884.0",
@@ -30,5 +28,11 @@
                             "@types/react":  "19.1.12",
                             "prisma":  "5.18.0",
                             "typescript":  "^5.9.2"
-                        }
+                        },
+    "prisma":  {
+                   "schema":  "prisma/schema.prisma"
+               },
+    "engines":  {
+                    "node":  "20.x"
+                }
 }
